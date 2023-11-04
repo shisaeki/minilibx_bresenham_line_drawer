@@ -7,11 +7,7 @@ int main()
 	int	number;
 	int	**coords;
 	t_mlx	mlx;
-	printf("Window width?:");
-	scanf("%d", &width);
-	printf("Window height?:");
-	scanf("%d", &height);
-
+	
 	printf("Number of lines?:");
 	scanf("%d", &number);
 	coords = (int **)malloc(sizeof(int*) * number);
@@ -21,10 +17,9 @@ int main()
 		printf("%d-line of start points and end point?:", i);
 		scanf("%d%d%d%d",&coords[i][0], &coords[i][1], &coords[i][2], &coords[i][3]);
 	}
-	printf("%d\n", coords[1][1]);
 
 	mlx.mlx_ptr = mlx_init();
-	mlx.win = mlx_new_window(mlx.mlx_ptr, width, height, "BresenhamLineDrawer");
+	mlx.win = mlx_new_window(mlx.mlx_ptr, 500, 500, "BresenhamLineDrawer");
 	for (int i = 0; i < number; i++)
 	{
 		draw_line(&mlx, coords[i][0], coords[i][1], coords[i][2], coords[i][3]);
